@@ -13,21 +13,15 @@ public class Display extends RPCStub {
 		// TODO
 		// implement marshalling, call and unmarshalling for write RPC method
 
-		RPCClient client;
 		byte[] b;
-		
-		client = new RPCClient(Common.DISPLAYHOST, Common.DISPLAYPORT);
+				
 		b = RPCUtils.marshallInteger(RPCID, Integer.parseInt(message));
 		
-		client.connect();
-		
-		byte[] newMessage = client.call(b);
+		byte[] newMessage = rmiclient.call(b);
 		
 		int newInt = RPCUtils.unmarshallInteger(newMessage);
 		
 		System.out.println(newInt);
-		
-		client.disconnect();
 		
 	}
 }

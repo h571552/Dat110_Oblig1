@@ -15,13 +15,11 @@ public class Sensor extends RPCStub {
 		// TODO
 		// implement marshalling, call and unmarshalling for read RPC method		
 
-		RPCClient client;
-		byte[] b;
+		byte[] b = new byte[RPCID];
 		
-		client = new RPCClient(Common.SENSORHOST, Common.SENSORPORT);
-		RPCServer server = new RPCServer(Common.SENSORPORT);
+		byte[] bytes = rmiclient.call(b);
 		
-		
+		temp = RPCUtils.unmarshallInteger(bytes);
 		
 		return temp;
 	}
