@@ -33,6 +33,8 @@ public class RPCClient {
 	
 	public byte[] call(byte[] rpcrequest) {
 		
+		connect();
+		
 		byte[] rpcreply;
 		
 		Message send = new Message(rpcrequest);
@@ -54,6 +56,8 @@ public class RPCClient {
 		rpctreply is the rpcreply to be unmarshalled by the client-stub
 		
 		*/
+		
+		disconnect();
 		
 		return rpcreply;
 		

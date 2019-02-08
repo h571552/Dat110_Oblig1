@@ -80,6 +80,8 @@ public class RPCUtils {
 		
 		// TODO: marshall RPC identifier and string into byte array
 
+		encoded[0] = rpcid;
+		
 		byte[] b = ByteBuffer.allocate(4).putInt(x).array();
 
 		for(int i = 1; i < b.length+1; i++) {

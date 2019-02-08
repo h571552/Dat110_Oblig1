@@ -15,6 +15,7 @@ public class Display extends RPCStub {
 
 		byte[] b;
 				
+		
 		b = RPCUtils.marshallInteger(RPCID, Integer.parseInt(message));
 		
 		byte[] newMessage = rmiclient.call(b);

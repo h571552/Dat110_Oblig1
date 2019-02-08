@@ -15,7 +15,8 @@ public class Sensor extends RPCStub {
 		// TODO
 		// implement marshalling, call and unmarshalling for read RPC method		
 
-		byte[] b = new byte[RPCID];
+		
+		byte[] b = RPCUtils.marshallVoid(RPCID);
 		
 		byte[] bytes = rmiclient.call(b);
 		

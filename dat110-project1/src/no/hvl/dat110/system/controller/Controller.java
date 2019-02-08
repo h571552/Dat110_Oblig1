@@ -2,6 +2,8 @@ package no.hvl.dat110.system.controller;
 
 import no.hvl.dat110.rpc.RPCClient;
 import no.hvl.dat110.rpc.RPCServerStopStub;
+import no.hvl.dat110.system.display.DisplayDevice;
+import no.hvl.dat110.system.display.DisplayImpl;
 
 public class Controller  {
 	
@@ -30,6 +32,8 @@ public class Controller  {
 		display = new Display();
 		sensor = new Sensor();
 		
+		display.register(displayclient);
+		sensor.register(sensorclient);
 		
 		// register stop methods in the RPC middleware
 		displayclient.register(stopdisplay);
@@ -39,7 +43,7 @@ public class Controller  {
 		// loop while reading from sensor and write to display via RPC
 		
 		
-		int i = N;
+		int i = 5;
 		while(i>0) {
 			i--;
 			display.write(Integer.toString(sensor.read()));
